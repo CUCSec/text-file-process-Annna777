@@ -8,17 +8,15 @@ def tamper(student_id):
 
   with open('lenna.bmp','r+b') as f:
 
-    last = f.read(54)
+    for num in student_id:
 
-    for number in student_id:
+     n = int(num)
 
-      digit = int(number)
+      if n == 0:
 
-      if digit == 0:
+        n = 10
 
-        digit = 10
-
-      f.read(digit*3)
+      f.read(n*3)
 
       f.write (b'\x00\x00\x00') 
 
